@@ -10,30 +10,10 @@ function App() {
     const { value, name } = event.target;
 
     setContact((prevalue) => {
-      switch (name) {
-        case "fName":
-          return {
-            fName: value,
-            lName: prevalue.lName,
-            email: prevalue.email
-          };
-
-        case "lName":
-          return {
-            fName: prevalue.fName,
-            lName: value,
-            email: prevalue.email
-          };
-        case "email":
-          return {
-            fName: prevalue.fName,
-            lName: prevalue.lName,
-            email: value
-          };
-
-        default:
-          break;
-      }
+      return {
+        ...prevalue,
+        [name]: value
+      };
     });
   }
 
